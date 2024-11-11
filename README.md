@@ -14,6 +14,7 @@ flask_app/
 ├── templates/            # Directory for HTML templates (views)
 │   ├── views/
 │   │   ├── index.html    # HTML template for the index page
+│   │   ├── urls.html     # HTML template for the urlss page
 ├── static/               # Directory for static files like CSS, JS, and images
 │   ├── css/
 │   │   ├── style.css     # Example CSS file

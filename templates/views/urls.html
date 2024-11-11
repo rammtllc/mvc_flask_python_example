@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Make the 'Shortened URL' label more noticeable with vibrant color and shadow */
+        #shortUrlResult strong {
+            color: #FF4500; /* Bright orange-red color */
+            font-size: 1.4em; /* Larger font size for better visibility */
+            font-weight: bold; /* Bold for emphasis */
+            text-transform: uppercase; /* Capitalize text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+        }
+
+        /* Optionally, add some margin for spacing */
+        #shortUrlResult {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>URL Shortener</h1>
+    <div class="container">
+        <label for="urlInput">Enter URL to shorten:</label>
+        <input type="text" id="urlInput" placeholder="https://example.com">
+        <button onclick="shortenURL()">Shorten URL</button>
+
+        <div id="shortUrlResult" class="result" style="display:none;">
+            <strong>Shortened URL: </strong> 
+            <a id="shortUrl" href="" target="_blank"></a>
+        </div>
+    </div>
+
+    <script>
+        function shortenURL() {
+            const urlInput = document.getElementById('urlInput').value;
+            if (!urlInput) {
+                alert('Please enter a URL.');
+                return;
+            }
+
+            fetch('/shorten', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: urlInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.short_url) {
+                    // Set the text and href for the shortened URL
+                    const shortUrlElement = document.getElementById('shortUrl');
+                    shortUrlElement.innerText = window.location.href + data.short_url;
+                    shortUrlElement.href = window.location.href + data.short_url;
+                    document.getElementById('shortUrlResult').style.display = 'block';
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong!');
+            });
+        }
+    </script>
+
+</body>
+</html>

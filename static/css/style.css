@@ -1,3 +1,4 @@
+/* General reset and flexbox layout */
 body {
     margin: 0;
     padding: 0;
@@ -10,6 +11,7 @@ body {
     color: #fff;
 }
 
+/* Centered container style */
 .container {
     text-align: center;
     background: rgba(0, 0, 0, 0.7);
@@ -18,12 +20,14 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Header Style */
 h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Button Style */
 button {
     padding: 10px 20px;
     font-size: 1.2rem;
@@ -32,10 +36,80 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
+/* Button Hover Effect */
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(255, 105, 180, 0.6);
+    background-color: #ff4499; /* Slightly darker hover state */
+}
+
+/* White Background Container for Input Section */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Adjusted container for better visual balance */
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Field Style */
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Button style for input section */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Button Hover Effect for Input */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result Box Styling */
+.result {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Vibrant Color for Shortened URL */
+#shortUrlResult strong {
+    color: #FF4500; /* Bright orange-red */
+    font-size: 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Added margin for spacing around result */
+#shortUrlResult {
+    margin-top: 20px;
 }
